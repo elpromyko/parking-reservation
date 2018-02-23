@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+</head>
+<body>
+<form action="/" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form }}
+    </table>
+    <input type="submit" value="Submit" />
+</form><br>
+
+{{ message }}<br>
+
+<a href="{% url 'reservations_list' %}">Click here to show reservations list based on parking space number</a>
+
+</body>
+</html>

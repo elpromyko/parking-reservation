@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservations list</title>
+</head>
+<body>
+<form action="/reservation/" method="post">
+    {% csrf_token %}
+    Show all reservations for
+    {{ form }}
+    <input type="submit" value="Show" />
+</form><br>
+<h2>Reservations for parking space number {{ space_number }} </h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Phone number</th>
+        <th>Reservation starts</th>
+        <th>Reservations finishes</th>
+    </tr>
+    {% for reservation in reservations %}
+    <tr>
+        <th>{{ reservation.name }}</th>
+        <th>{{ reservation.surname }} </th>
+        <th>{{ reservation.phone_number }}</th>
+        <th>{{ reservation.start_date }}</th>
+        <th>{{ reservation.finish_date }}</th>
+    </tr>
+    {% endfor %}
+</table><br>
+<a href="{% url 'index' %}">Go back</a>
+</body>
+</html>
