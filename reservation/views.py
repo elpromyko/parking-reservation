@@ -40,7 +40,7 @@ class ReservationsListView(View):
     def get(self, request):
         parking_space_number = ParkingSpaceForm()
 
-        return render(request, 'reservation/reservations_list.html', {'form': parking_space_number})
+        return render(request, 'reservation/reservations_search.html', {'form': parking_space_number})
 
     def post(self, request):
         parking_space_number_form = ParkingSpaceForm(data=request.POST)
@@ -53,4 +53,4 @@ class ReservationsListView(View):
                                                                           'reservations': reservations_list,
                                                                           'space_number': space_number})
 
-        return render(request, 'reservation/reservations_list.html', {'form': parking_space_number_form})
+        return render(request, 'reservation/reservations_search.html', {'form': parking_space_number_form})
